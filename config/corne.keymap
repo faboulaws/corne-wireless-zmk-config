@@ -50,66 +50,59 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // -------------------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |                    |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |                    |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |  MUTE  |  |        |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |                    | ENT | RSE  | ALT |
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
+            display-name = "Base";
             bindings = <
-&kp GRAVE         &kp Q               &kp W           &kp F              &kp P           &kp B                                             &kp J                  &kp L       &kp U                &kp Y            &kp SEMICOLON        &kp BSPC
-&kp TAB           &hm LEFT_CONTROL A  &hm LEFT_ALT R  &hm LEFT_GUI S     &lt 1 T         &lt 3 G                                           &lt 3 M                &lt 2 N     &hm LEFT_GUI E       &hm RIGHT_ALT I  &hm RIGHT_CONTROL O  &kp SQT
-&mt LSHFT ESCAPE  &kp Z               &kp X           &kp C              &kp D           &kp V                 &kp C_PLAY_PAUSE  &kp C_PP  &kp K                  &kp H       &kp COMMA            &kp DOT          &kp FSLH             &kp ENTER
-                                                      &mt LEFT_GUI LEFT  &lt 1 UP_ARROW  &mt LEFT_SHIFT ENTER                              &mt RIGHT_SHIFT SPACE  &lt 2 DOWN  &mt RIGHT_ALT RIGHT
+&kp GRAVE   &kp Q        &kp W           &kp F                        &kp P           &kp B                   &kp J                  &kp L       &kp U                      &kp Y            &kp SEMICOLON  &kp BSPC
+&kp TAB     &hm LCTRL A  &hm LEFT_ALT R  &hm LEFT_GUI S               &lt 1 T         &lt 3 G                 &lt 3 M                &lt 2 N     &hm RIGHT_GUI E            &hm RIGHT_ALT I  &hm RCTRL O    &kp SQT
+&kp ESCAPE  &kp Z        &kp X           &kp C                        &kp D           &kp V                   &kp K                  &kp H       &kp COMMA                  &kp DOT          &kp FSLH       &kp ENTER
+                                         &mt LEFT_COMMAND LEFT_ARROW  &lt 1 UP_ARROW  &mt LEFT_SHIFT ENTER    &mt RIGHT_SHIFT SPACE  &lt 2 DOWN  &mt RIGHT_ALT RIGHT_ARROW
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
-            // ------------------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |                    |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |                    | LFT | DWN |  UP | RGT |     |  F12 |
-            // | SHFT | F1  | F2  | F3  | F4  | F5  |  boot  |  |        |  F6 | F7  | F8  | F9  | F10 |  F11 |
-            //                    | GUI |     | SPC |                    | ENT |     | ALT |
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
 
+            display-name = "Lower";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3    &kp N4  &kp N5                         &kp N6    &kp N7     &kp N8        &kp N9            &kp N0             &kp BSPC
-&none      &none   &none   &none     &none   &none                          &kp LEFT  &kp MINUS  &kp EQUAL     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
-&kp LSHFT  &none   &none   &none     &none   &none      &bootloader  &none  &kp F6    &kp LEFT   &kp UP_ARROW  &kp DOWN          &kp RIGHT_ARROW    &kp F11
-                           &kp LGUI  &trans  &kp SPACE                      &kp RET   &trans     &kp LALT
+&kp GRAVE  &kp N1  &kp N2  &kp N3    &kp N4  &kp N5       &kp N6     &kp N7          &kp N8        &kp N9            &kp N0             &kp BSPC
+&trans     &trans  &trans  &trans    &trans  &trans       &kp LEFT   &kp MINUS       &kp EQUAL     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&kp LSHFT  &trans  &trans  &trans    &trans  &trans       &trans     &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW    &kp RIGHT          &trans
+                           &kp LGUI  &trans  &kp ENTER    &kp SPACE  &trans          &kp RALT
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         raise_layer {
-            // ------------------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |                    |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |                    |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |        |  |  boot  |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |                    | ENT |     | ALT |
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
 
+            display-name = "Raise";
             bindings = <
-&kp TILDE   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                           &kp CARET  &kp AMPS        &kp KP_MULTIPLY  &kp LPAR        &kp RPAR         &kp BSPC
-&kp DELETE  &kp F1    &kp F2  &kp F3    &kp F4    &kp F5                              &kp F11    &kp UNDERSCORE  &kp PLUS         &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE
-&kp LSHFT   &kp F6    &kp F7  &kp F8    &kp F9    &kp F10    &none  &kp K_PLAY_PAUSE  &kp F12    &kp HOME        &kp END          &kp PAGE_UP     &kp PAGE_DOWN    &kp TILDE
-                              &kp LGUI  &trans    &kp SPACE                           &kp RET    &trans          &kp LALT
+&kp TILDE   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS        &kp KP_MULTIPLY  &kp LPAR           &kp RPAR         &kp BSPC
+&kp DELETE  &kp F1    &kp F2  &kp F3    &kp F4    &kp F5       &kp F11    &kp UNDERSCORE  &kp PLUS         &kp LEFT_BRACE     &kp RIGHT_BRACE  &kp PIPE
+&kp LSHFT   &kp F6    &kp F7  &kp F9    &kp F9    &kp F10      &kp F12    &kp K_NEXT      &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &kp C_PLAY       &kp TILDE
+                              &kp LGUI  &trans    &kp SPACE    &kp RET    &trans          &kp RALT
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_AC_FORWARD_MAIL C_REWIND>;
         };
 
         layer_3 {
             bindings = <
-&bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans           &trans                      &trans            &mkp LCLK          &kp UP_ARROW        &mkp RCLK  &trans  &trans
-&trans          &trans        &trans        &trans        &trans           &trans                      &trans            &kp LEFT_ARROW     &kp DOWN            &kp RIGHT  &kp T   &trans
-&trans          &trans        &trans        &trans        &trans           &trans      &trans  &trans  &trans            &mkp MB4           &mkp MB3            &mkp MB5   &trans  &trans
-                                            &kp C_REWIND  &kp K_VOLUME_UP  &kp C_MUTE                  &kp K_PLAY_PAUSE  &kp K_VOLUME_DOWN  &kp C_FAST_FORWARD
+&bt BT_CLR_ALL  &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2      &bt BT_SEL 3   &bt BT_SEL 4    &trans             &mkp LCLK          &trans              &mkp RCLK  &trans  &trans
+&trans          &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans            &trans         &trans          &kp C_VOLUME_DOWN  &trans             &trans              &trans     &trans  &trans
+&trans          &trans                &kp C_REWIND          &kp C_PLAY_PAUSE  &kp K_FORWARD  &kp K_MUTE      &kp C_VOLUME_UP    &mkp MB4           &mkp MB3            &mkp MB5   &trans  &trans
+                                                            &kp C_REWIND      &kp C_VOL_UP   &kp K_MUTE      &kp C_PLAY_PAUSE   &kp C_VOLUME_DOWN  &kp C_FAST_FORWARD
             >;
         };
     };
